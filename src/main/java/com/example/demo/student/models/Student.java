@@ -1,11 +1,11 @@
-package com.example.demo.student;
+package com.example.demo.student.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
 @Entity
-@Table
+@Table(name = "Student")
 public class Student {
     @Id
     @SequenceGenerator(name = "student_sequence", sequenceName = "student_sequence", allocationSize = 1)
