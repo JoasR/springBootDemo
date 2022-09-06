@@ -1,6 +1,6 @@
 package com.example.demo.student.DAO;
 
-import com.example.demo.student.models.Student;
+import com.example.demo.student.entities.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

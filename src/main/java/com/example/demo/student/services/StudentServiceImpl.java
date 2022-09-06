@@ -1,6 +1,6 @@
 package com.example.demo.student.services;
 
-import com.example.demo.student.models.Student;
+import com.example.demo.student.entities.model.Student;
 import com.example.demo.student.DAO.StudentDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,7 @@ public class StudentServiceImpl implements StudentService{
         this.studentDAO = studentDAO;
     }
 
+    @Override
     public List<Student> getAllStudents(){
         return studentDAO.findAll();
     }
@@ -32,6 +33,7 @@ public class StudentServiceImpl implements StudentService{
         return student;
     }
 
+    @Override
     public void addNewStudent(Student student) {
         Optional<Student> optionalStudent = studentDAO.findStudentByEmail(student.getEmail());
         if (optionalStudent.isPresent()){
@@ -39,7 +41,7 @@ public class StudentServiceImpl implements StudentService{
         }
         studentDAO.save(student);
     }
-
+    @Override
     public void deleteStudent(Long studentId) {
         boolean exists = studentDAO.existsById(studentId);
         if (!exists){
@@ -48,6 +50,7 @@ public class StudentServiceImpl implements StudentService{
         studentDAO.deleteById(studentId);
     }
 
+    @Override
     @Transactional
     public void updateStudent(Long studentId, String name, String email) {
         Student student = studentDAO.findById(studentId).orElseThrow(() -> new IllegalStateException(

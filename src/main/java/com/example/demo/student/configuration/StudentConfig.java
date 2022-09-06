@@ -1,7 +1,7 @@
 package com.example.demo.student.configuration;
 
 import com.example.demo.student.DAO.StudentDAO;
-import com.example.demo.student.models.Student;
+import com.example.demo.student.entities.model.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
